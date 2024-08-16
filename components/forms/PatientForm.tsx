@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import CustomFormField from "../../app/CustomFormField";
+import SubmitButton from "../ui/SubmitButton";
 export enum FormFieldType {
   INPUT = "input",
   TEXTAREA = "textarea",
@@ -62,23 +63,25 @@ const PatientForm = () => {
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />
-        <FormField
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
           control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
+          name="email"
+          label="email"
+          placeholder="john Doe@gmail.com"
+          iconSrc="/assets/icons/email.svg"
+          iconAlt="email"
         />
-        <Button type="submit">Submit</Button>
+        <CustomFormField
+          fieldType={FormFieldType.PHONE_INPUT}
+          control={form.control}
+          name="phone"
+          label="Phone number"
+          placeholder="+44-123-456-789"
+          iconSrc="/assets/icons/email.svg"
+          iconAlt="email"
+        />
+        <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>
   );
