@@ -35,7 +35,12 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (fieldType) {
     case FormFieldType.INPUT:
   case FormFieldType.PHONE_INPUT:
-
+    return(
+      <FormControl>
+        <PhoneInput 
+        defaultCountry="en"/>
+      </FormControl>
+    )
       return (
         <div className="flex rounded-md border border-dark-500 bg-dark-400">
           {iconSrc && (
